@@ -1,8 +1,10 @@
 import scrapy
 
 
-class QuotesSpider(scrapy.Spider):
-    name = "quotes"
+class StatSpider(scrapy.Spider):
+    #name of the spider should be unique within the project.
+    name = "oScraper"
+
 
     def start_requests(self):
         urls = [
