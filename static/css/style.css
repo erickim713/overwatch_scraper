@@ -1,0 +1,40 @@
+/*@import "bourbon";
+
+//fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,800);
+$font-open: 'Open Sans', sans-serif;
+$color-snow: #fff;
+$color-gray: #e2e1f1;
+$color-snow: #fff;
+$color-orange: #ce8d1c;
+.title-header{
+    color: $color-snow;
+    font-size: 4em;
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 0;
+}
+
+body{
+    background: #222629;
+    margin-top: 40px;
+    font-family: $font-open;
+}*/
+
+ul{
+    list-style-type: none;
+}
+
+.player-match{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+.title-header{
+    font-size: 2em;
+    text-align: center;
+}
+
+th.header{
+    text-align: center;
+}
