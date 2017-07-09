@@ -26,7 +26,7 @@ ul{
 }
 
 .player-match{
-    width: 80%;
+    width: 60em;
     margin: auto;
     text-align: center;
 }
@@ -37,4 +37,30 @@ ul{
 
 th.header{
     text-align: center;
+    width: 7em;
+}
+th.pool{
+    width: 46em;
+}
+.player{
+    display: inline-block;
+    width: 7em;
+    height: 8em;
+    float: left;
+}
+
+#champion-pool-section{
+    vertical-align: top;
+}
+#champion-pool-table{
+    width: 100%;
+}
+
+.attacker{
+    width: 6em;
+    float: none;
+}
+.image{
+    width: 5em;
+    height: 5em;
 }
