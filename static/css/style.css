@@ -20,6 +20,7 @@ body{
     margin-top: 40px;
     font-family: $font-open;
 }*/
+@font-face { font-family: Overwatch; src: url('./bignoodletitling/big_noodle_titling.ttf'); }
 
 ul{
     list-style-type: none;
@@ -56,11 +57,16 @@ th.pool{
     width: 100%;
 }
 
-.attacker{
+.champion{
     width: 6em;
     float: none;
 }
 .image{
     width: 5em;
     height: 5em;
+}
+
+.hero-class{
+    font-family: Overwatch;
+    font-size: 3em;
 }
