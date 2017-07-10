@@ -18,8 +18,9 @@ function main() {
         }
     });
     $('.image').click(function(event) {
-        let clicked_src = $(this).attr('src');
-        current_selected.children('img').attr('src',clicked_src);
+        let clicked_src = $(this).attr('src'); //getting the clicked image src from the hero pool
+        current_selected.children('img').attr('src',clicked_src); //actually changing the  image of the selected
+        // TODO: there should finding next available selection slot for hero selection.
     });
 }
 
@@ -35,6 +36,8 @@ function initial_setup(){
         player.hero = undefined;
         listofplayers.push(player); //set up list so that all of them are not
     }
+    // TODO: I wonder if i need this player information here. i mean it's not really needed, there should more like array of our team and their team
+    // and the calculation of well matched/balanced should be done like that instead of combining all of them together into one array.
 }
 
 function look_for_next_available_hero(){
