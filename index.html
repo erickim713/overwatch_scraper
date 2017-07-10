@@ -7,6 +7,9 @@
         </title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="./static/css/style.css" />
+        <script src="./static/js/jquery-3.2.1.min.js"></script>
+        <script src="./static/js/script.js"></script>
+
     </head>
     <body>
         <h1 class="title-header">Overwatch Guide</h1>
@@ -27,13 +30,13 @@
             <tbody>
                 <tr>
                     <!-- our team column -->
-                    <td>
-                        <div class="player">1</div>
-                        <div class="player">2</div>
-                        <div class="player">3</div>
-                        <div class="player">4</div>
-                        <div class="player">5</div>
-                        <div class="player">6</div>
+                    <td id="ourcolumn" class="our column">
+                        <div class="player"><img class="selection" src="./static/images/logo/overwatch_logo.png" alt=""></div>
+                        <div class="player"><img class="selection" src="./static/images/logo/overwatch_logo.png" alt=""></div>
+                        <div class="player"><img class="selection" src="./static/images/logo/overwatch_logo.png" alt=""></div>
+                        <div class="player"><img class="selection" src="./static/images/logo/overwatch_logo.png" alt=""></div>
+                        <div class="player"><img class="selection" src="./static/images/logo/overwatch_logo.png" alt=""></div>
+                        <div class="player"><img class="selection" src="./static/images/logo/overwatch_logo.png" alt=""></div>
                     </td>
                     <!-- champion pool column -->
                     <td id="champion-pool-section">
@@ -45,13 +48,13 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <div class="player champion"><img class='image' src="./static/images/attacker/genji.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/attacker/mccree.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/attacker/pharah.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/attacker/reaper.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/attacker/soldier.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/attacker/tracer.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/attacker/sombra.png" /></div>
+                                    <div class="player champion"><img class='image' src="./static/images/attacker/genji.png" />Genji</div>
+                                    <div class="player champion"><img class='image' src="./static/images/attacker/mccree.png" />McCree</div>
+                                    <div class="player champion"><img class='image' src="./static/images/attacker/pharah.png" />Pharah</div>
+                                    <div class="player champion"><img class='image' src="./static/images/attacker/reaper.png" />Reaper</div>
+                                    <div class="player champion"><img class='image' src="./static/images/attacker/soldier.png" />Soldier: 76</div>
+                                    <div class="player champion"><img class='image' src="./static/images/attacker/tracer.png" />Tracer</div>
+                                    <div class="player champion"><img class='image' src="./static/images/attacker/sombra.png" />Sombra</div>
                                 </td>
                             </tr>
                             <tr>
@@ -61,12 +64,12 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <div class="player champion"><img class='image' src="./static/images/special/bastion.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/special/hanzo.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/special/junkrat.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/special/mei.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/special/torbjorn.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/special/widowmaker.png" /></div>
+                                    <div class="player champion"><img class='image' src="./static/images/special/bastion.png" />Bastion</div>
+                                    <div class="player champion"><img class='image' src="./static/images/special/hanzo.png" />Hanzo</div>
+                                    <div class="player champion"><img class='image' src="./static/images/special/junkrat.png" />Junkrat</div>
+                                    <div class="player champion"><img class='image' src="./static/images/special/mei.png" />Mei</div>
+                                    <div class="player champion"><img class='image' src="./static/images/special/torbjorn.png" />Torbjorn</div>
+                                    <div class="player champion"><img class='image' src="./static/images/special/widowmaker.png" />Widowmaker</div>
                                 </td>
                             </tr>
                             <tr>
@@ -76,12 +79,12 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <div class="player champion"><img class='image' src="./static/images/tank/dva.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/tank/reinhardt.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/tank/roadhog.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/tank/winston.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/tank/zarya.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/tank/orisa.png" /></div>
+                                    <div class="player champion"><img class='image' src="./static/images/tank/dva.png" />D.va</div>
+                                    <div class="player champion"><img class='image' src="./static/images/tank/reinhardt.png" />Reinhardt</div>
+                                    <div class="player champion"><img class='image' src="./static/images/tank/roadhog.png" />Roadhog</div>
+                                    <div class="player champion"><img class='image' src="./static/images/tank/winston.png" />Winston</div>
+                                    <div class="player champion"><img class='image' src="./static/images/tank/zarya.png" />Zarya</div>
+                                    <div class="player champion"><img class='image' src="./static/images/tank/orisa.png" />Orisa</div>
                                 </td>
                             </tr>
                             <tr>
@@ -91,23 +94,23 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <div class="player champion"><img class='image' src="./static/images/support/lucio.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/support/mercy.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/support/symmetra.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/support/zenyatta.png" /></div>
-                                    <div class="player champion"><img class='image' src="./static/images/support/ana.png" /></div>
+                                    <div class="player champion"><img class='image' src="./static/images/support/lucio.png" />Lucio</div>
+                                    <div class="player champion"><img class='image' src="./static/images/support/mercy.png" />Mercy</div>
+                                    <div class="player champion"><img class='image' src="./static/images/support/symmetra.png" />Symmetra</div>
+                                    <div class="player champion"><img class='image' src="./static/images/support/zenyatta.png" />Zenyatta</div>
+                                    <div class="player champion"><img class='image' src="./static/images/support/ana.png" />Ana</div>
                                 </td>
                             </tr>
                         </table>
                     </td>
                     <!-- enemy team pool -->
-                    <td>
-                        <div class="player">1</div>
-                        <div class="player">2</div>
-                        <div class="player">3</div>
-                        <div class="player">4</div>
-                        <div class="player">5</div>
-                        <div class="player">6</div>
+                    <td id="enemycolumn" class="enemy column">
+                        <div class="player"><img class="selection" src="./static/images/logo/overwatch_logo.png" alt=""></div>
+                        <div class="player"><img class="selection" src="./static/images/logo/overwatch_logo.png" alt=""></div>
+                        <div class="player"><img class="selection" src="./static/images/logo/overwatch_logo.png" alt=""></div>
+                        <div class="player"><img class="selection" src="./static/images/logo/overwatch_logo.png" alt=""></div>
+                        <div class="player"><img class="selection" src="./static/images/logo/overwatch_logo.png" alt=""></div>
+                        <div class="player"><img class="selection" src="./static/images/logo/overwatch_logo.png" alt=""></div>
                     </td>
                 </tr>
                 <tr>
