@@ -2,8 +2,18 @@
 var current_selected_id;
 var listofplayers = []; //beginning empty list where the hero has been selected or not.
 var current_selected;
+var full;
+var myteam = [];
+var enemyteam = [];
+var offense = ['genji','mccree', 'pharah', 'reaper', 'soldier', 'tracer', 'sombra', 'bastion', 'hanzo', 'junkrat', 'mei', 'torbjorn', 'widowmaker'];
+var tank = ['dva', 'reinhardt', 'roadhog', 'winston', 'zarya', 'orisa'];
+var healer = ['lucio', 'mercy', 'symmetra', 'zenyatta', 'ana'];
+var state;
 $(document).ready(function() {
     main();
+    var checkViewport = setInterval(function() {
+    suggestion()
+}, 500);
 });
 
 
@@ -42,6 +52,7 @@ function main() {
             current_selected.toggleClass('selected');
         }
     });
+
 }
 
 function initial_setup(){
@@ -72,4 +83,106 @@ function update_player(player_id, champion_name) {
     temp.selected = true;
     temp.hero = champion_name;
     return;
+}
+
+function checkAll(){
+    for (var i = 0; i < listofplayers.length; i++) {
+        if(listofplayers[i].selected){
+            continue;
+        }
+        else{
+            return false;
+        }
+    }
+    return true;
+}
+
+function find_champion_weakness(champion_name){
+    let suggestPoolList = []
+    for (var i = 0; i < info.length; i++) {
+        if(champion_name == info[i].Name.toLowerCase()){
+            for (var j = 0; j < 3; j++) {
+                suggestPoolList.push(info[i].weakAgainst[j].name.toLowerCase());
+            }
+        }
+    }
+    let result = {}
+    result[champion_name] = suggestPoolList;
+    return result;
+}
+
+
+
+
+function Classificationfunction(heroName){
+    if(offense.indexOf(heroName) > -1){
+        return 0;
+    }
+    else if (tank.indexOf(heroName) > -1) {
+        return 1;
+    }
+    else {
+        return 2; //healer
+    }
+}
+
+function suggestion(){
+    // TODO: LAST FREAKING PART FOR THIS PROJECT,, what should i compare now.. i have ups and downs and champion name...
+    if(checkAll()){
+        // give suggestion
+
+        for (var a = 0; a < 6; a++) {
+            myteam.push(listofplayers[a].hero);
+            enemyteam.push(listofplayers[a+6].hero)
+        }
+        let counters = []; //start off with empty list of counters
+        var teamcomp = {
+            offense: 0,
+            tank: 0,
+            healer: 0,
+            checkBalance: function(){
+                if(this.healer == 2 && this.offense == 2 && this.tank == 2){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+        };
+        let countered = [false, false, false, false, false, false];
+        for(var u = 0; u < myteam.length; u++){
+            let heroClass = Classificationfunction(myteam[u]) //classify which hero it is, 0: offense, 1: tank, 2: healer
+            if(heroClass == 0){
+                teamcomp.offense =  teamcomp.offense + 1;
+            }
+            else if (heroClass == 1) {
+                teamcomp.tank = teamcomp.tank + 1;
+            }
+            else{
+                teamcomp.healer = teamcomp.healer +1;
+            }
+        }
+
+        if(teamcomp.checkBalance()){
+            console.log("balanced");
+        }
+
+
+        // for (var b = 0; b < 6; b++){
+        //     counters.push(find_champion_weakness(enemyteam[b]));
+        // }
+        // // after getting the counters of the current enemy team, we need to check the composition
+        // // check if all the champions are first countered:
+        // for (var c = 0; c < 6; c++){
+        //     for(var d = 0; d < myteam.length; d++){
+        //         let suggestpool = counters[c][enemyteam[c]];
+        //         for(var e = 0; e < suggestpool.length; e++){
+        //             if(myteam[d].toLowerCase() == suggestpool[e]){
+        //                 countered[c] = true;
+        //             }
+        //         }
+        //     }
+        // }
+
+    }
 }

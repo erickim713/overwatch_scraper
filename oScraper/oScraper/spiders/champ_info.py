@@ -25,7 +25,7 @@ class ChampionInfo(scrapy.Spider):
         #strongAgainst these champions (just pull until greenbar is greater than red bar)
         strongAgainstThis = []
         for x in range(24):
-            strongAgainst = response.xpath('//*[@id="counter-lists"]/div[1]/div/div[' + str(x+1) + ']')
+            strongAgainst = response.xpath('//*[@id="counter-lists"]/div[2]/div/div[' + str(x+1) + ']')
             temp = {}
             temp['name'] = strongAgainst.css('div.desc > h4::text').extract_first()
             temp['yes'] = strongAgainst.css('div.desc > span.up::text').extract_first()
@@ -34,5 +34,5 @@ class ChampionInfo(scrapy.Spider):
 
         card = {}
         card.setdefault('Name', championName)
-        card['strongAgainst'] = strongAgainstThis
+        card['weakAgainst'] = strongAgainstThis
         yield card
