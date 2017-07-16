@@ -56,7 +56,23 @@ class Team {
     checkPicks(enemyTeam){
         //function to check if the picks are to counter the other team.
         console.log("hero pick check :)");
-
+        let suggestion = [];
+        for (var i = 0; i < 6; i++) {
+            let current_enemy_counters = find_champion_weakness(enemyTeam.members[i].champion.name);
+            console.log(current_enemy_counters);
+            console.log(enemyTeam.members[i].champion.name);
+            let counter = 0;
+            for(var j = 0; j < 6; j++){
+                if(current_enemy_counters[enemyTeam.members[i].champion.name].indexOf(this.members[j].champion.name) > -1){
+                    console.log(this.members[j].champion.name);
+                    counter++;
+                }
+            }
+            if(counter == 0){
+                suggestion.push(current_enemy_counters[enemyTeam.members[i].champion.name]);
+            }
+        }
+        return suggestion;
 
     }
     suggestionDisplay(){
@@ -66,6 +82,20 @@ class Team {
     find_by_id(id){
         //access the player's information for update by finding them with their id.
         return this.members[id-1]
+    }
+    find_champion_weakness(champion_name){
+        let suggestPoolList = []
+        for (var i = 0; i < info.length; i++) {
+            if(champion_name == info[i].Name.toLowerCase()){
+                for (var j = 0; j < 3; j++) {
+                    suggestPoolList.push(info[i].weakAgainst[j].name.toLowerCase());
+                }
+                break;
+            }
+        }
+        let result = {}
+        result[champion_name] = suggestPoolList;
+        return result;
     }
 }
 
