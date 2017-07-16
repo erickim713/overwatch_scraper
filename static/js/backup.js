@@ -9,12 +9,6 @@ var offense = ['genji','mccree', 'pharah', 'reaper', 'soldier', 'tracer', 'sombr
 var tank = ['dva', 'reinhardt', 'roadhog', 'winston', 'zarya', 'orisa'];
 var healer = ['lucio', 'mercy', 'symmetra', 'zenyatta', 'ana'];
 var state;
-
-//new point.
-var myTeam = new Team();
-var theirTeam = new Team();
-var teamPointer;
-var playerPointer;
 $(document).ready(function() {
     main();
     var checkViewport = setInterval(function() {
@@ -26,35 +20,25 @@ $(document).ready(function() {
 function main() {
     console.log('debug: main function is entered');
     initial_setup();
-    $("div.player").not('.champion').click(function(){ //CLICKING ON THE PLAYER TO CHANGE
+    $("div.player").not('.champion').click(function(){
         console.log('mouse clicked')
         if(current_selected != $(this)){
             current_selected.toggleClass('selected');
             $(this).toggleClass('selected');
-            current_selected = $(this); //this is done so that if statement checks if it's this or not. *removing unnecessary step to change current selected when it's not needed
+            current_selected = $(this);
             current_selected_id = parseInt($(this)[0].id);
             console.log(current_selected_id);
-            //find the RIGHT player in a RIGHT team to update.
-            if(current_selected_id <= 6){
-                teamPointer = myTeam;
-                playerPointer = teamPointer.find_by_id(current_selected_id);
-            }
-            else{
-                teamPointer = theirTeam;
-                playerPointer = teamPointer.find_by_id(current_selected_id-6);
-            }
         }
     });
-    $('.image').click(function(event) { //CLICKING ON THE HERO IMAGE IN THE POOL
+    $('.image').click(function(event) {
         let clicked_src = $(this).attr('src'); //getting the clicked image src from the hero pool
         current_selected.children('img').attr('src',clicked_src); //actually changing the  image of the selected
-        playerPointer.updateChampion($(this).attr('alt'));
-        // update_player(current_selected_id, $(this).attr('alt'));
+        update_player(current_selected_id, $(this).attr('alt'));
 
 
         // TODO: there should finding next available selection slot for hero selection.
     });
-    $(document).keypress(function(e) { //PEOPLE USUALLY PRESS ENTER TO SKIP TO NEXT (ALTERNATIVE TO CLICKING)
+    $(document).keypress(function(e) {
         if(e.which == 13) {
             console.log('pressed enter');
             current_selected_id = (current_selected_id + 1) % 13;
@@ -66,14 +50,6 @@ function main() {
             current_selected.toggleClass('selected');
             current_selected = $("#" + current_selected_id);
             current_selected.toggleClass('selected');
-            if(current_selected_id <= 6){
-                teamPointer = myTeam;
-                playerPointer = teamPointer.find_by_id(current_selected_id);
-            }
-            else{
-                teamPointer = theirTeam;
-                playerPointer = teamPointer.find_by_id(current_selected_id-6);
-            }
         }
     });
 
@@ -81,9 +57,6 @@ function main() {
 
 function initial_setup(){
     console.log("sign up the players by assigning them to the objects");
-    teamPointer = myTeam;
-    playerPointer = myTeam.find_by_id(1)
-    //first initializing the two teams;
     let count = $("div.player").not('.champion').length; //number of players
     current_selected = $("div.player").not('.champion').first(); //first selected player
     ($("div.player").not('.champion').first()).toggleClass('selected'); //first selected player should be selected
@@ -154,7 +127,7 @@ function Classificationfunction(heroName){
 }
 
 function suggestPicks(ourteam, their_counter){
-    //their_counter
+    their_counter
 }
 
 function suggestion(){
