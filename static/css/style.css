@@ -97,5 +97,35 @@ div.player.champion:hover:after{
 .selection{
     width: 7em;
     height: 7em;
+}
 
+
+p#standard-comp{
+    float: left;
+    margin-left: 19em;
+}
+
+div#circle-standard{
+    float: left;
+    width: 1em;
+    margin-top: 0.3em;
+    height: 1em;
+    margin-left: 1em;
+    border-radius: 25px;
+    background: red;
+}
+
+p#counter-comp{
+    float: left;
+    margin-left: 19em;
+}
+
+div#circle-counter{
+    float: left;
+    width: 1em;
+    margin-top: 0.3em;
+    height: 1em;
+    margin-left: 1.5em;
+    border-radius: 25px;
+    background: red;
 }
