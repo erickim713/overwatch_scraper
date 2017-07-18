@@ -86,9 +86,19 @@ class Team {
         let analysisResult = this.checkPicks(theirTeam); //check the pick against the enemy team.
         if(this.balanceState){ //if the team is balanced 2,2,2 formation then you should just see the list of champions to be selected
             //if the team is balanced then we just have to cover the non-countered champions
-            for(var i = 0; i < analysisResult.length; i++){
-                console.log("to cover " + analysisResult[i].champion + " you will need " + analysisResult[i].counter[0] + " " + analysisResult[i].counter[1] + " " + analysisResult[i].counter[2]);
-                // console.log("hi");
+            let balanceStatus = document.getElementById('circle-standard');
+            balanceStatus.style.background = 'green';
+            if(analysisResult.length == 0){
+                let counterStatus = document.getElementById('circle-counter');
+                counterStatus.style.background = 'green';
+            }
+            else{
+                for(var i = 0; i < analysisResult.length; i++){
+                    console.log("to cover " + analysisResult[i].champion + " you will need " + analysisResult[i].counter[0] + " " + analysisResult[i].counter[1] + " " + analysisResult[i].counter[2]);
+                    // console.log("hi");
+                    let counterStatus = document.getElementById('circle-counter');
+                    counterStatus.style.background = 'red';
+                }
             }
         }
         else{
@@ -97,6 +107,10 @@ class Team {
                 console.log("best offense to cover " + analysisResult[j].champion + " is " + subResult[0]);
                 console.log("best tanker to cover " + analysisResult[j].champion + " is " + subResult[1]);
                 console.log("best healer to cover " + analysisResult[j].champion + " is " + subResult[2]);
+                let counterStatus = document.getElementById('circle-counter');
+                let balanceStatus = document.getElementById('circle-standard');
+                counterStatus.style.background = 'red';
+                balanceStatus.style.background = 'red';
             }
         }
     }
