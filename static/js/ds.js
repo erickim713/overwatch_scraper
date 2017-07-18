@@ -102,11 +102,12 @@ class Team {
             }
         }
         else{
-            for(var j = 0; j <analysisResult.length; j++){
+            for(var j = 0; j < analysisResult.length; j++){
+                console.log(analysisResult[j].champion);
                 let subResult = this.find_champion_weakness(analysisResult[j].champion);
-                console.log("best offense to cover " + analysisResult[j].champion + " is " + subResult[0]);
-                console.log("best tanker to cover " + analysisResult[j].champion + " is " + subResult[1]);
-                console.log("best healer to cover " + analysisResult[j].champion + " is " + subResult[2]);
+                console.log("best offense to cover " + analysisResult[j].champion + " is " + subResult[analysisResult[j].champion][0]);
+                console.log("best tanker to cover " + analysisResult[j].champion + " is " + subResult[analysisResult[j].champion][1]);
+                console.log("best healer to cover " + analysisResult[j].champion + " is " + subResult[analysisResult[j].champion][2]);
                 let counterStatus = document.getElementById('circle-counter');
                 let balanceStatus = document.getElementById('circle-standard');
                 counterStatus.style.background = 'red';
